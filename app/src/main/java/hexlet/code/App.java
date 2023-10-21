@@ -32,6 +32,8 @@ public class App {
         var file = new File(url.getFile());
         var sql = Files.lines(file.toPath()).collect(Collectors.joining("/"));
         //conn
+
+        log.info(sql);
         try(var conn = dataSource.getConnection();
             var statement = conn.createStatement()) {
             statement.execute(sql);
