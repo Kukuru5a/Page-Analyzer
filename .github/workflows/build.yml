@@ -41,4 +41,5 @@ jobs:
           push: true
           cache-from: hexletcomponents/java-javalin-example:latest
           cache-to: type=inline
-          tags: hexletcomponents/java-javalin-example:latest
+          tags: Kukuru5a/java-project-72:latest
+
