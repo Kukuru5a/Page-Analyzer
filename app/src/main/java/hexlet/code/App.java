@@ -25,7 +25,7 @@ public class App {
     }
     public static Javalin getApp() throws IOException, SQLException {
         var hikariConfig = new HikariConfig();
-        hikariConfig.setJdbcUrl("jdbc:h2:mem:my_project_1:DB_CLOSE_ELAY=-1");
+        hikariConfig.setJdbcUrl("jdbc:h2:mem:project:DB_CLOSE_ELAY=-1");
         var dataSource = new HikariDataSource(hikariConfig);
         //routing
         var url = App.class.getClassLoader().getResource("schema.sql");
