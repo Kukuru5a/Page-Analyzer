@@ -24,22 +24,22 @@ public class App {
         app.start(getPort());
     }
     public static Javalin getApp() throws IOException, SQLException {
-        var hikariConfig = new HikariConfig();
-        hikariConfig.setJdbcUrl("jdbc:h2:mem:project:DB_CLOSE_ELAY=-1");
-        var dataSource = new HikariDataSource(hikariConfig);
-        //routing
-        var url = App.class.getClassLoader().getResource("schema.sql");
-        var file = new File(url.getFile());
-        var sql = Files.lines(file.toPath())
-                .collect(Collectors.joining("\n"));
-        //conn
-
-        log.info(sql);
-        try(var conn = dataSource.getConnection();
-            var statement = conn.createStatement()) {
-            statement.execute(sql);
-        }
-        BaseRepository.dataSource = dataSource;
+//        var hikariConfig = new HikariConfig();
+//        hikariConfig.setJdbcUrl("jdbc:h2:mem:project:DB_CLOSE_ELAY=-1");
+//        var dataSource = new HikariDataSource(hikariConfig);
+//        //routing
+//        var url = App.class.getClassLoader().getResource("schema.sql");
+//        var file = new File(url.getFile());
+//        var sql = Files.lines(file.toPath())
+//                .collect(Collectors.joining("\n"));
+//        //conn
+//
+//        log.info(sql);
+//        try(var conn = dataSource.getConnection();
+//            var statement = conn.createStatement()) {
+//            statement.execute(sql);
+//        }
+//        BaseRepository.dataSource = dataSource;
 
         var app = Javalin.create(config -> {
             config.plugins.enableDevLogging();
