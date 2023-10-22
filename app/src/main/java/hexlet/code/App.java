@@ -24,10 +24,13 @@ public class App {
         app.start(getPort());
     }
     public static Javalin getApp() throws IOException, SQLException {
+         System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
+
+
         var hikariConfig = new HikariConfig();
         hikariConfig.setJdbcUrl("jdbc:h2:mem:project:DB_CLOSE_ELAY=-1");
         var dataSource = new HikariDataSource(hikariConfig);
-//        //routing
+        //routing
         var url = App.class.getClassLoader().getResource("schema.sql");
         var file = new File(url.getFile());
         var sql = Files.lines(file.toPath())
