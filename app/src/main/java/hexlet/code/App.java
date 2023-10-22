@@ -3,19 +3,25 @@ package hexlet.code;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import hexlet.code.pages.MainPage;
 import hexlet.code.repositories.BaseRepository;
 import io.javalin.Javalin;
+import io.javalin.rendering.template.JavalinJte;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.stream.Collectors;
+
+import static hexlet.code.AppUtils.createTemplateEngine;
+import static hexlet.code.AppUtils.getDataBaseUrl;
 
 
 @Slf4j
-public class App {
+public class App{
 
     private static int getPort() {
         String port = System.getenv().getOrDefault("PORT", "7070");
@@ -28,11 +34,12 @@ public class App {
 
     }
     public static Javalin getApp() throws IOException, SQLException {
-//         System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
+         System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
+
 
 
         var hikariConfig = new HikariConfig();
-        hikariConfig.setJdbcUrl("jdbc:h2:mem:project:DB_CLOSE_DELAY=-1");
+        hikariConfig.setJdbcUrl(getDataBaseUrl());
         var dataSource = new HikariDataSource(hikariConfig);
         //routing
         var url = App.class.getClassLoader().getResource("schema.sql");
@@ -56,9 +63,10 @@ public class App {
             ctx.contentType("text/html; charset=utf-8");
         });
         app.get("/", ctx -> {
-            ctx.result("Hello, World");
+            var page = new MainPage(ctx.sessionAttribute("currentUser"));
+            ctx.render("index.jte", Collections.singletonMap("page", page));
         });
-
+        JavalinJte.init(createTemplateEngine());
         return app;
     }
 }

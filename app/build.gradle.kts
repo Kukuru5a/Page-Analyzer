@@ -31,6 +31,8 @@ dependencies {
     implementation("io.javalin:javalin:5.6.2")
     implementation("io.javalin:javalin-bundle:5.6.2")
     implementation("io.javalin:javalin-rendering:5.6.2")
+    //JTE
+    implementation("gg.jte:jte:3.1.3")
 
 
     testImplementation("org.assertj:assertj-core:3.24.2")
