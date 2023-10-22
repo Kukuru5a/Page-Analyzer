@@ -1,5 +1,6 @@
 package hexlet.code;
 
+
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import hexlet.code.repositories.BaseRepository;
@@ -12,6 +13,7 @@ import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.stream.Collectors;
 
+
 @Slf4j
 public class App {
 
@@ -22,13 +24,15 @@ public class App {
     public static void main(String[] args) throws SQLException, IOException {
         var app = getApp();
         app.start(getPort());
+
+
     }
     public static Javalin getApp() throws IOException, SQLException {
-         System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
+//         System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
 
 
         var hikariConfig = new HikariConfig();
-        hikariConfig.setJdbcUrl("jdbc:h2:mem:project:DB_CLOSE_ELAY=-1");
+        hikariConfig.setJdbcUrl("jdbc:h2:mem:project:DB_CLOSE_DELAY=-1");
         var dataSource = new HikariDataSource(hikariConfig);
         //routing
         var url = App.class.getClassLoader().getResource("schema.sql");
