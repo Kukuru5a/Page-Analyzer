@@ -9,8 +9,7 @@ import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinJte;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.Collections;
@@ -42,10 +41,9 @@ public class App{
         hikariConfig.setJdbcUrl(getDataBaseUrl());
         var dataSource = new HikariDataSource(hikariConfig);
         //routing
-        var url = App.class.getClassLoader().getResource("schema.sql");
-        var file = new File(url.getFile());
-        var sql = Files.lines(file.toPath())
-                .collect(Collectors.joining("\n"));
+//        var url = App.class.getClassLoader().getResource("schema.sql");
+//        var file = new File(url.getFile());
+        var sql = getResourceFileAsString("schema.sql");
 //        //conn
 
         log.info(sql);
@@ -68,5 +66,20 @@ public class App{
         });
         JavalinJte.init(createTemplateEngine());
         return app;
+    }
+
+    public static InputStream getResourceFileAsInputStream(String fileName) {
+        ClassLoader cl = App.class.getClassLoader();
+        return cl.getResourceAsStream(fileName);
+    }
+    public static String getResourceFileAsString(String fileName) {
+        InputStream is = getResourceFileAsInputStream(fileName);
+
+        if(is != null) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+            return (String) reader.lines().collect(Collectors.joining(System.lineSeparator()));
+        } else {
+            throw new RuntimeException("resource not found");
+        }
     }
 }
