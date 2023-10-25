@@ -3,14 +3,17 @@ package hexlet.code;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import hexlet.code.controllers.UrlController;
 import hexlet.code.pages.MainPage;
 import hexlet.code.repositories.BaseRepository;
+import hexlet.code.repositories.UrlRepository;
+import hexlet.code.routes.NamedRoutes;
+import hexlet.code.sites.SitesPage;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinJte;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
-import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.stream.Collectors;
@@ -33,18 +36,13 @@ public class App{
 
     }
     public static Javalin getApp() throws IOException, SQLException {
-         System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
-
-
+        System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
 
         var hikariConfig = new HikariConfig();
         hikariConfig.setJdbcUrl(getDataBaseUrl());
         var dataSource = new HikariDataSource(hikariConfig);
-        //routing
-//        var url = App.class.getClassLoader().getResource("schema.sql");
-//        var file = new File(url.getFile());
         var sql = getResourceFileAsString("schema.sql");
-//        //conn
+//      conn
 
         log.info(sql);
         try(var conn = dataSource.getConnection();
@@ -64,6 +62,8 @@ public class App{
             var page = new MainPage(ctx.sessionAttribute("currentUser"));
             ctx.render("index.jte", Collections.singletonMap("page", page));
         });
+        app.get(NamedRoutes.sitesPath(), UrlController::index);
+        app.post("/urls", UrlController::addUrl);
         JavalinJte.init(createTemplateEngine());
         return app;
     }
