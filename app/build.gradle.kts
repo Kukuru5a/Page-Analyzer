@@ -22,6 +22,8 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("com.mashape.unirest:unirest-java:1.3.1")
+
     implementation("com.h2database:h2:2.2.222")
     implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")

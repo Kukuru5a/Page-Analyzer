@@ -4,18 +4,13 @@ package hexlet.code;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import hexlet.code.controllers.UrlController;
-import hexlet.code.pages.MainPage;
 import hexlet.code.repositories.BaseRepository;
-import hexlet.code.repositories.UrlRepository;
-import hexlet.code.routes.NamedRoutes;
-import hexlet.code.sites.SitesPage;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinJte;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.sql.SQLException;
-import java.util.Collections;
 import java.util.stream.Collectors;
 
 import static hexlet.code.AppUtils.createTemplateEngine;
@@ -32,8 +27,6 @@ public class App{
     public static void main(String[] args) throws SQLException, IOException {
         var app = getApp();
         app.start(getPort());
-
-
     }
     public static Javalin getApp() throws IOException, SQLException {
         System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
@@ -58,14 +51,25 @@ public class App{
         app.before(ctx -> {
             ctx.contentType("text/html; charset=utf-8");
         });
+
+
+
         app.get("/", ctx -> {
-            var page = new MainPage(ctx.sessionAttribute("currentUser"));
-            ctx.render("index.jte", Collections.singletonMap("page", page));
+            ctx.render("index.jte");
         });
-        app.get(NamedRoutes.sitesPath(), UrlController::index);
+
         app.post("/urls", UrlController::addUrl);
+        app.get("/urls", UrlController::urlList);
+        app.get("/urls/{id}", UrlController::showUrl);
+//        app.get("/urls", ctx -> {
+//            ctx.render("urls/urls.jte");
+//        });
+//        app.post("/urls", UrlController::add);
+
+
         JavalinJte.init(createTemplateEngine());
         return app;
+
     }
 
     public static InputStream getResourceFileAsInputStream(String fileName) {

@@ -25,4 +25,27 @@ public class AppTest {
             assertThat(response.body().string()).contains("Hello, World");
         });
     }
+    @Test
+    public void testHomePage() {
+        JavalinTest.test(app, ((server, client) ->{
+            var response = client.get("/");
+            assertThat(response.code()).isEqualTo(200);
+        }
+        ));
+    }
+    @Test
+    public void testUrlPage() {
+        JavalinTest.test(app, (server, client) -> {
+            var response = client.get("/urls");
+            assertThat(response.code()).isEqualTo(200);
+        });
+    }
+
+    @Test
+    public void testPostUrlPage() {
+        JavalinTest.test(app, ((server, client) -> {
+            var response = client.post("/urls");
+            assertThat(response.code()).isEqualTo(200);
+        }));
+    }
 }

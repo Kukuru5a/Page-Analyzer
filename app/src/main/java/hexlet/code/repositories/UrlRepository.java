@@ -4,24 +4,26 @@ import hexlet.code.models.Url;
 
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.sql.Timestamp;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Optional;
 
-import static hexlet.code.repositories.BaseRepository.dataSource;
 
-public class UrlRepository {
-    public static void save (Url url) throws SQLException {
-        var sql = "INSERT INTO courses (name, description) VALUES (?, ?)";
-        try(var conn = dataSource.getConnection();
-            var stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setString(1,"name");
-            stmt.setString(2, "description");
-            stmt.executeUpdate();
-            var genKeys = stmt.getGeneratedKeys();
-            // install id into created entities
-            if(genKeys.next()){
-                url.setId(genKeys.getLong(1));
+public class UrlRepository extends BaseRepository {
+
+    public static void save(Url url) throws SQLException {
+        String sql = "INSERT INTO urls(name, created_at) VALUES(?,?);";
+        var conn = dataSource.getConnection();
+        var dateTime = new Timestamp(System.currentTimeMillis());
+        try (var preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            preparedStatement.setString(1, url.getName());
+            preparedStatement.setTimestamp(2, dateTime);
+            preparedStatement.executeUpdate();
+            var generatedKeys = preparedStatement.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                url.setId(1L);
+                url.setCreatedAt(dateTime);
             } else {
                 throw new SQLException("DB have not returned an id after saving an entity");
             }
@@ -29,18 +31,23 @@ public class UrlRepository {
     }
 
     public static Optional<Url> find(Long id) throws SQLException {
-        var sql = "SELECT * FROM courses WHERE id=?";
-        try(var conn = dataSource.getConnection();
-            var stmt = conn.prepareStatement(sql)) {
+        var sql = "SELECT * FROM urls WHERE id = ?";
+
+        try (var conn = dataSource.getConnection();
+             var stmt = conn.prepareStatement(sql)) {
             stmt.setLong(1, id);
-            var resSet = stmt.executeQuery();
-            if(resSet.next()) {
-                var name = resSet.getString("name");
+            var resultSet = stmt.executeQuery();
+
+            if (resultSet.next()) {
+                var name = resultSet.getString("name");
+                var createdAt = resultSet.getTimestamp("created_at");
                 var url = new Url(name);
+
                 url.setId(id);
+                url.setCreatedAt(createdAt);
                 return Optional.of(url);
             }
-            return Optional.empty();
+            return null;
         }
     }
 
@@ -66,19 +73,24 @@ public class UrlRepository {
     }
 
     public static List<Url> getEntities() throws SQLException {
-        var sql = "SELECT * FROM courses";
-        try(var conn = dataSource.getConnection();
-            var stmt = conn.prepareStatement(sql)) {
-            var resSet = stmt.executeQuery();
-            var res = new ArrayList<Url>();
-            while(resSet.next()) {
-                var id =resSet.getLong("id");
-                var name = resSet.getString("name");
+        var sql = "SELECT * FROM urls";
+
+        try (var conn = dataSource.getConnection();
+             var stmt = conn.prepareStatement(sql)) {
+            var resultSet = stmt.executeQuery();
+            var result = new ArrayList<Url>();
+
+            while (resultSet.next()) {
+                var id = resultSet.getLong("id");
+                var createdAt = resultSet.getTimestamp("created_at");
+                var name = resultSet.getString("name");
                 var url = new Url(name);
+
                 url.setId(id);
-                res.add(url);
+                url.setCreatedAt(createdAt);
+                result.add(url);
             }
-            return res;
+            return result;
         }
     }
 }
