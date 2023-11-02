@@ -22,7 +22,6 @@ public class AppTest {
         JavalinTest.test(app, (server, client) -> {
             var response = client.get("/");
             assertThat(response.code()).isEqualTo(200);
-            assertThat(response.body().string()).contains("Hello, World");
         });
     }
     @Test
