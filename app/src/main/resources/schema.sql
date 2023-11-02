@@ -1,15 +1,7 @@
-DROP TABLE IF EXISTS tbl;
-
-CREATE TABLE tbl(
-id INT PRIMARY KEY,
-name varchar(255) NOT NULL,
-description text
-);
-
 DROP TABLE IF EXISTS urls;
 
 CREATE TABLE urls(
-id INT PRIMARY KEY,
-name varchar(255),
+id INT PRIMARY KEY AUTO_INCREMENT,
+name VARCHAR(255) NOT NULL,
 created_at TIMESTAMP
 );

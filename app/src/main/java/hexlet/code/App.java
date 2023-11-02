@@ -3,20 +3,18 @@ package hexlet.code;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import hexlet.code.pages.MainPage;
+import hexlet.code.controllers.UrlController;
 import hexlet.code.repositories.BaseRepository;
+import hexlet.code.routes.NamedRoutes;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinJte;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
-import java.nio.file.Files;
 import java.sql.SQLException;
-import java.util.Collections;
 import java.util.stream.Collectors;
 
-import static hexlet.code.AppUtils.createTemplateEngine;
-import static hexlet.code.AppUtils.getDataBaseUrl;
+import static hexlet.code.AppUtils.*;
 
 
 @Slf4j
@@ -29,26 +27,24 @@ public class App{
     public static void main(String[] args) throws SQLException, IOException {
         var app = getApp();
         app.start(getPort());
-
-
     }
     public static Javalin getApp() throws IOException, SQLException {
-         System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
+//        System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
 
 
-
+//  configuring jdbc with local DB
         var hikariConfig = new HikariConfig();
-        hikariConfig.setJdbcUrl(getDataBaseUrl());
+        hikariConfig.setJdbcUrl("jdbc:h2:mem:project;DB_CLOSE_DELAY=-1;");
+
         var dataSource = new HikariDataSource(hikariConfig);
-        //routing
 //        var url = App.class.getClassLoader().getResource("schema.sql");
 //        var file = new File(url.getFile());
         var sql = getResourceFileAsString("schema.sql");
-//        //conn
 
+//      conn
         log.info(sql);
-        try(var conn = dataSource.getConnection();
-            var statement = conn.createStatement()) {
+        try (var connection = dataSource.getConnection();
+             var statement = connection.createStatement()) {
             statement.execute(sql);
         }
         BaseRepository.dataSource = dataSource;
@@ -60,12 +56,25 @@ public class App{
         app.before(ctx -> {
             ctx.contentType("text/html; charset=utf-8");
         });
+
+
+
         app.get("/", ctx -> {
-            var page = new MainPage(ctx.sessionAttribute("currentUser"));
-            ctx.render("index.jte", Collections.singletonMap("page", page));
+            ctx.render("index.jte");
         });
+
+        app.post("/urls", UrlController::addUrl);
+        app.get("/urls", UrlController::urlList);
+        app.get(NamedRoutes.sitePagePath("{id}"), UrlController::showUrl);
+//        app.get("/urls", ctx -> {
+//            ctx.render("urls/urls.jte");
+//        });
+//        app.post("/urls", UrlController::add);
+
+
         JavalinJte.init(createTemplateEngine());
         return app;
+
     }
 
     public static InputStream getResourceFileAsInputStream(String fileName) {
