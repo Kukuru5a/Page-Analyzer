@@ -27,11 +27,10 @@ public class AppTest {
     }
     @Test
     public void testHomePage() {
-        JavalinTest.test(app, ((server, client) ->{
+        JavalinTest.test(app, ((server, client) -> {
             var response = client.get("/");
             assertThat(response.code()).isEqualTo(200);
-        }
-        ));
+        }));
     }
     @Test
     public void testUrlPage() {
