@@ -1,7 +1,7 @@
 package hexlet.code.repositories;
 
 import hexlet.code.models.UrlCheck;
-import hexlet.code.repositories.BaseRepository;
+
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;

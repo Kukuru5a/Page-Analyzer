@@ -1,30 +1,39 @@
 @import hexlet.code.dto.urls.UrlsPg
 @import hexlet.code.routes.NamedRoutes
-@param UrlsPg pg
+
+@param UrlsPg page
+
 @template.layout.page(
 content = @`
-    <h1>All urls</h1>
-    <table class="table table-striped">
-        <thead>
+    @if(page != null && page.getFlash() != null)
+        <div class="alert alert-${page.getFlashType()}" role="alert">
+            ${page.getFlash()}
+        </div>
+    @endif
+
+    <div class="container-lg mt-5">
+        <h1>Сайты</h1>
+
+        <table class="table table-bordered table-hover mt-3">
+            <thead>
             <tr>
                 <th class="col-1">ID</th>
-                <th class="col-1">URL</th>
-                <th class="col-1">Latest check</th>
-                <th class="col-1">Response code</th>
+                <th>Имя</th>
+                <th class="col-2">Последняя проверка</th>
+                <th class="col-1">Код ответа</th>
             </tr>
-        </thead>
+            </thead>
+            @for(var url : page.getUrlList())
             <tbody>
-                @if(pg != null)
-                    @for(var url : pg.getUrlList())
-                        <tr>
-                            <th class="col-1">${url.getId()}</th>
-                            <th class="col-1"><a href="${NamedRoutes.sitePagePath(url.getId())}">${url.getName()}</a></th>
-                            <th class="col-1">any data</th>
-                            <th class="col-1">any data</th>
-                        </tr>
-                    @endfor
-                @endif
+            <tr>
+                <td>${url.getId()}</td>
+                <td><a href="urls/${url.getId()}">${url.getName()}</a></td>
+                <td></td>
+                <td></td>
+            </tr>
             </tbody>
-    </table>
+            @endfor
+        </table>
+    </div>
 `
 )

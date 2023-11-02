@@ -9,7 +9,11 @@ public class NamedRoutes {
     }
 
     public static String sitePagePath(Long id) {
-        return "/urls/" + sitePagePath(String.valueOf(id));
+        return "/urls" + sitePagePath(String.valueOf(id));
+    }
+
+    public static String homePagePath() {
+        return "/";
     }
 
 
