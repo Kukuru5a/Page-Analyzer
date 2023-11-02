@@ -58,7 +58,7 @@ public class UrlController {
     public static void showUrl(Context ctx) throws SQLException {
         var id = ctx.pathParamAsClass("id", Long.class).get();
         var url = UrlRepository.find(id)
-                .orElseThrow(()->new NotFoundResponse("Entity with id " + id + " is not defined"));
+                .orElseThrow(() -> new NotFoundResponse("Entity with id " + id + " is not defined"));
         var page = new UrlPage(url);
         ctx.render("urls/show.jte", Collections.singletonMap("page", page));
 
