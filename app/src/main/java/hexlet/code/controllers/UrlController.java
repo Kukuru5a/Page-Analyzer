@@ -1,5 +1,8 @@
 package hexlet.code.controllers;
 
+import com.fasterxml.jackson.databind.ser.Serializers;
+import hexlet.code.dto.BasePage;
+import hexlet.code.dto.MainPage;
 import hexlet.code.dto.urls.UrlPage;
 import hexlet.code.dto.urls.UrlsPg;
 import hexlet.code.models.Url;
@@ -51,6 +54,8 @@ public class UrlController {
     public static void urlList(Context ctx) throws SQLException {
         List<Url> urls = UrlRepository.getEntities();
         var page = new UrlsPg(urls);
+        page.setFlash(ctx.consumeSessionAttribute("flash"));
+        page.setFlashType(ctx.consumeSessionAttribute("flash-type"));
         ctx.render("urls/urls.jte", Collections.singletonMap("page", page));
     }
 

@@ -22,7 +22,7 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-
+    //for inner DB
     implementation("com.h2database:h2:2.2.222")
     implementation("com.zaxxer:HikariCP:5.0.1")
 
@@ -35,11 +35,14 @@ dependencies {
     implementation("io.javalin:javalin-rendering:5.6.2")
     //JTE
     implementation("gg.jte:jte:3.1.4")
-
-
+    //Mockito for test
+    testImplementation ("org.mockito:mockito-core:3.+")
+    //
     testImplementation("org.assertj:assertj-core:3.24.2")
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation("junit:junit:4.13.1")
+    testImplementation("junit:junit:4.13.1")
 }
 
 tasks.test {

@@ -40,10 +40,9 @@
 
 <main class="flex-grow-1">
     @if(page != null && page.getFlash() != null)
-        <div class="alert alert-${page.getFlashType()}" role="alert">
-            ${page.getFlash()}
-        </div>
+        <p>${page.getFlash()}</p>
     @endif
+
     ${content}
 </main>
 </body>
