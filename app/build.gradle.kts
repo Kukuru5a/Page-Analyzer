@@ -43,6 +43,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("junit:junit:4.13.1")
     testImplementation("junit:junit:4.13.1")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
+    testImplementation("org.postgresql:postgresql:42.1.4")
 }
 
 tasks.test {

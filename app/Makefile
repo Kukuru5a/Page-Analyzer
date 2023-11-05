@@ -29,5 +29,8 @@ image-build:
 
 image-push:
 	docker push hexletcomponents/java-javalin-example:latest
+report:
+	./gradlew jacocoTestReport
+
 
 .PHONY: build

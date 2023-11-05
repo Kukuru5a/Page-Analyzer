@@ -35,17 +35,12 @@ public class App {
 
     public static Javalin getApp() throws IOException, SQLException {
 //        System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
-
-
 //  configuring jdbc with local DB
         var hikariConfig = new HikariConfig();
         hikariConfig.setJdbcUrl("jdbc:h2:mem:project;DB_CLOSE_DELAY=-1;");
 
         var dataSource = new HikariDataSource(hikariConfig);
-//        var url = App.class.getClassLoader().getResource("schema.sql");
-//        var file = new File(url.getFile());
         var sql = getResourceFileAsString("schema.sql");
-
 //      conn
         log.info(sql);
         try (var connection = dataSource.getConnection();
@@ -62,18 +57,19 @@ public class App {
             ctx.contentType("text/html; charset=utf-8");
         });
 
-
+        //GET
         app.get("/", ctx -> {
             ctx.render("index.jte");
         });
-
-        app.post("/urls", UrlController::addUrl);
         app.get("/urls", UrlController::urlList);
         app.get(NamedRoutes.sitePagePath("{id}"), UrlController::showUrl);
-//        app.get("/urls", ctx -> {
-//            ctx.render("urls/urls.jte");
-//        });
-//        app.post("/urls", UrlController::add);
+        //POST
+        app.post("/urls", UrlController::addUrl);
+        app.post("/urls/{id}/check", ctx -> {
+
+
+            ctx.redirect(NamedRoutes.sitePagePath("{id}"));
+        });
 
 
         JavalinJte.init(createTemplateEngine());

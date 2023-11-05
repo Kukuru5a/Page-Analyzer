@@ -1,20 +1,21 @@
 package hexlet.code.controllers;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
-import hexlet.code.dto.BasePage;
-import hexlet.code.dto.MainPage;
 import hexlet.code.dto.urls.UrlPage;
 import hexlet.code.dto.urls.UrlsPg;
 import hexlet.code.models.Url;
+import hexlet.code.models.UrlCheck;
+import hexlet.code.repositories.UrlCheckRepository;
 import hexlet.code.repositories.UrlRepository;
 import io.javalin.http.Context;
 import io.javalin.http.NotFoundResponse;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.http.HttpResponse;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class UrlController {
 
@@ -66,6 +67,61 @@ public class UrlController {
                 .orElseThrow(() -> new NotFoundResponse("Entity with id " + id + " is not defined"));
         var page = new UrlPage(url);
         ctx.render("urls/show.jte", Collections.singletonMap("page", page));
-
     }
+//    public static void checks(Context ctx) throws SQLException {
+//        Long id = Long.valueOf(ctx.pathParamAsClass("id", Integer.class).getOrDefault(null));
+//        Optional<Url> url = UrlRepository.find(id);
+//
+//        if (url == null) {
+//            throw new NotFoundResponse();
+//        }
+//
+//        UrlCheckRepository.save(getCheck(url, ctx));
+//        ctx.attribute("url", url);
+//        ctx.redirect("/urls/" + id);
+//    }
+//    public static UrlCheck getCheck(Optional<Url> url, Context ctx) {
+//        String checkedUrlName = url.getName();
+//        HttpResponse<String> urlResponse = null;
+//        String urlH1Value = "";
+//        String urlTitle = "";
+//        String urlDescription = "";
+//        int urlStatusCode = 0;
+//
+//        try {
+//            urlResponse = Unirest
+//                    .get(checkedUrlName)
+//                    .asString();
+//            urlStatusCode = urlResponse.getStatus();
+//            Document urlDoc = Jsoup.parse(urlResponse.getBody());
+//
+//            if (urlDoc.select("h1").first() != null) {
+//                urlH1Value = urlDoc.select("h1").first().text();
+//            }
+//
+//            if (urlDoc.select("title").first() != null) {
+//                urlTitle = urlDoc.select("title").first().text();
+//            }
+//
+//            if (!urlDoc.select("meta[name=description]").isEmpty()) {
+//                urlDescription = urlDoc.select("meta[name=description]")
+//                        .get(0)
+//                        .attr("content");
+//            }
+//
+//            ctx.sessionAttribute("flash", "Проверка добавлена");
+//            ctx.sessionAttribute("flash-type", "success");
+//            ctx.redirect("/");
+//
+//            return new UrlCheck(urlStatusCode, urlTitle, urlH1Value, urlDescription, url.getId());
+//        } catch (Exception e) {
+//
+//            ctx.sessionAttribute("flash", "Ошибка при проверке URL");
+//            ctx.sessionAttribute("flash-type", "danger");
+//            ctx.redirect("/");
+//
+//            return new UrlCheck(urlStatusCode, urlTitle, urlH1Value, urlDescription, url.getId());
+//        }
+//    }
+
 }
