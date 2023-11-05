@@ -3,19 +3,15 @@ package hexlet.code.controllers;
 import hexlet.code.dto.urls.UrlPage;
 import hexlet.code.dto.urls.UrlsPg;
 import hexlet.code.models.Url;
-import hexlet.code.models.UrlCheck;
-import hexlet.code.repositories.UrlCheckRepository;
 import hexlet.code.repositories.UrlRepository;
 import io.javalin.http.Context;
 import io.javalin.http.NotFoundResponse;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.http.HttpResponse;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 public class UrlController {
 

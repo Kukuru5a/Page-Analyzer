@@ -1,28 +1,16 @@
 package hexlet.code;
 
-import gg.jte.Content;
-import hexlet.code.controllers.UrlController;
 import hexlet.code.models.Url;
 import hexlet.code.repositories.UrlRepository;
 import io.javalin.Javalin;
-import io.javalin.http.BadRequestResponse;
 import io.javalin.http.Context;
 import io.javalin.testtools.JavalinTest;
-import org.h2.engine.User;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
-import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Arrays;
 
-import static junit.framework.TestCase.assertEquals;
 import static org.mockito.Mockito.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
