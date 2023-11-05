@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import static org.mockito.Mockito.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.Mockito.mock;
 
 public class AppTest {
     Javalin app;
