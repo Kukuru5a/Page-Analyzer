@@ -1,7 +1,8 @@
+@import hexlet.code.dto.urls.UrlPage
 @import hexlet.code.dto.urls.UrlsPg
 
 @param UrlsPg page
-
+@param UrlPage urlPage
 @template.layout.page(
 content = @`
     @if(page != null && page.getFlash() != null)
@@ -27,8 +28,8 @@ content = @`
             <tr>
                 <td>${url.getId()}</td>
                 <td><a href="urls/${url.getId()}">${url.getName()}</a></td>
-                <td></td>
-                <td></td>
+                <td>${page.getCheckMap().isEmpty() || page.getCheckMap().get(url.getId()) == null ? "" : String.valueOf(page.getCheckMap().get(url.getId()).getCreatedAt())}</td>
+                <td>${page.getCheckMap().isEmpty() || page.getCheckMap().get(url.getId()) == null ? "" : String.valueOf(page.getCheckMap().get(url.getId()).getStatusCode())}</td>
             </tr>
             </tbody>
             @endfor

@@ -52,6 +52,14 @@ dependencies {
     testImplementation("junit:junit:4.13.1")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
     testImplementation("org.postgresql:postgresql:42.1.4")
+    //unirest
+    implementation("com.mashape.unirest:unirest-java:1.3.1")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.9.4")
+    implementation("org.json:json:20201115")
+    //jsoup
+    implementation ("org.jsoup:jsoup:1.13.1")
+
+
 }
 
 tasks.test {

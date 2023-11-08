@@ -1,8 +1,6 @@
-@import hexlet.code.dto.BasePage
 @import gg.jte.Content
 @import hexlet.code.routes.NamedRoutes
 @param Content content
-@param BasePage page = null
 <!doctype html>
 <html lang="en">
 <head>
@@ -39,10 +37,6 @@
     </header>
 
 <main class="flex-grow-1">
-    @if(page != null && page.getFlash() != null)
-        <p>${page.getFlash()}</p>
-    @endif
-
     ${content}
 </main>
 </body>

@@ -65,13 +65,7 @@ public class App {
         app.get(NamedRoutes.sitePagePath("{id}"), UrlController::showUrl);
         //POST
         app.post("/urls", UrlController::addUrl);
-        app.post("/urls/{id}/check", ctx -> {
-
-
-            ctx.redirect(NamedRoutes.sitePagePath("{id}"));
-        });
-
-
+        app.post("/urls/{id}/checks", UrlController::checks);
         JavalinJte.init(createTemplateEngine());
         return app;
 
