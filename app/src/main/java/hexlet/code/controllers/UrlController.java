@@ -18,7 +18,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 public class UrlController {
 
@@ -78,6 +77,7 @@ public class UrlController {
         page.setFlashType(ctx.consumeSessionAttribute("flash-type"));
         ctx.render("urls/show.jte", Collections.singletonMap("page", page));
     }
+
     public static void checks(Context ctx) throws SQLException {
         Long id = ctx.pathParamAsClass("id", Long.class).getOrDefault(null);
         var url = UrlRepository.find(id)
@@ -88,6 +88,7 @@ public class UrlController {
         ctx.attribute("url", url);
         ctx.redirect("/urls/" + id);
     }
+
     public static UrlCheck getCheck(Url url, Context ctx) {
         String checkedUrlName = url.getName();
         HttpResponse<String> urlResponse = null;
@@ -100,8 +101,7 @@ public class UrlController {
             urlResponse = Unirest
                     .get(checkedUrlName)
                     .asString();
-            urlStatusCode = urlResponse.getCode()
-            ;
+            urlStatusCode = urlResponse.getCode();
             Document urlDoc = Jsoup.parse(urlResponse.getBody());
 
             if (urlDoc.select("h1").first() != null) {
@@ -132,38 +132,6 @@ public class UrlController {
             return new UrlCheck(urlStatusCode, urlTitle, urlH1Value, urlDescription, url.getId());
         }
     }
-//    public static UrlCheck getCheck(Url url, Context ctx) {
-//        String checkedUrlName = url.getName();
-//        HttpResponse<String> urlResp;
-//        String urlH1Val = "";
-//        String urlTitle = "";
-//        String urlDescription = "";
-//        int urlStat = 0;
-//        Long urlIdN = null;
-//        try {
-//            var cUrl = new UrlCheck(urlStat,
-//            urlTitle, urlH1Val,
-//            urlDescription,
-//            urlIdN);
-//
-//        } catch (Exception e) {
-//            ctx.sessionAttribute("flash", "Ошибка при проверке URL");
-//            ctx.sessionAttribute("flash-type", "danger");
-//            ctx.redirect("/urls/{id}");
-//        }
-//
-//    }
-//
-//    public static void checks(Context ctx) throws SQLException {
-//
-//        Long id = ctx.pathParamAsClass("id", Long.class).getOrDefault(null);
-//        var url = UrlRepository.find(id).orElseThrow(() ->
-//                new NotFoundResponse("Entity with id " + id + " not found"));
-//        UrlCheckRepository.save(getCheck(url, ctx));
-//        var checkedUrl = UrlCheckRepository.getEntitiesByUrlId(id);
-//        var page = new UrlCheckPage(checkedUrl);
-//        ctx.render("urls/check.jte", Collections.singletonMap("page", page));
-//    }
 
 
 }

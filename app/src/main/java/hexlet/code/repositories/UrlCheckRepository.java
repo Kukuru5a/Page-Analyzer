@@ -5,7 +5,11 @@ import hexlet.code.models.UrlCheck;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.HashMap;
 
 public class UrlCheckRepository extends BaseRepository {
     public static void save(UrlCheck urlCheck) throws SQLException {
@@ -35,11 +39,12 @@ public class UrlCheckRepository extends BaseRepository {
             }
         }
     }
-    public static Optional<UrlCheck> find (Long id) throws SQLException {
+
+    public static Optional<UrlCheck> find(Long id) throws SQLException {
         var sql = "SELECT * FROM url_checks WHERE url_id = ?";
 
-        try(var conn = dataSource.getConnection();
-        var stmt = conn.prepareStatement(sql)) {
+        try (var conn = dataSource.getConnection();
+             var stmt = conn.prepareStatement(sql)) {
             stmt.setLong(1, id);
             var resultSet = stmt.executeQuery();
 
@@ -86,6 +91,7 @@ public class UrlCheckRepository extends BaseRepository {
             return result;
         }
     }
+
     public static List<UrlCheck> getEntitiesByUrl(long urlId) throws SQLException {
         var sql = "SELECT * FROM url_checks WHERE url_id = ?";
 
