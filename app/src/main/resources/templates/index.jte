@@ -1,9 +1,15 @@
 @import hexlet.code.routes.NamedRoutes
-@param NamedRoutes page
+@import hexlet.code.dto.BasePage
+@param BasePage page
 
 @template.layout.page(
-
+page = page,
 content = @`
+    @if (page != null && page.getFlashType().equals("danger"))
+        <div class="rounded-0 m-0 alert alert-dismissible fade show alert-danger" role="alert" >
+            ${page.getFlash()}
+        </div>
+    @endif
     <div class="col-md-10 col-lg-8 mx-auto text-muted">
         <h1 class="display-3 mb-0">Анализатор страниц</h1>
         <p class="lead">Бесплатно проверяйте сайты на SEO пригодность</p>

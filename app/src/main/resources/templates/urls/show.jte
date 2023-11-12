@@ -6,11 +6,11 @@
 @template.layout.page(
     page = page,
     content = @`
-    @if(page != null && page.getFlash() != null)
-        <div class="alert alert-${page.getFlashType()}" role="alert">
-            ${page.getFlash()}
-        </div>
-    @endif
+<%--    @if(page != null && page.getFlash() != null)--%>
+<%--        <div class="alert alert-${page.getFlashType()}" role="alert">--%>
+<%--            ${page.getFlash()}--%>
+<%--        </div>--%>
+<%--    @endif--%>
     <div class="container-lg mt-5">
         <h1>Сайт: ${page.getUrl().getName()}</h1>
 

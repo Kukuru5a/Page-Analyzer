@@ -1,6 +1,8 @@
 @import gg.jte.Content
+@import hexlet.code.dto.BasePage
 @import hexlet.code.routes.NamedRoutes
 @param Content content
+@param BasePage page = null
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,7 +39,20 @@
     </header>
 
 <main class="flex-grow-1">
+    @if(page != null && page.getFlash() != null && page.getFlash().contains("Некорректный URL"))
+        <div class="alert alert-${page.getFlashType()}" role="alert">
+            ${page.getFlash()}
+        </div>
+    @endif
     ${content}
 </main>
+    <footer class="footer border-top py-3 mt-5 bg-light">
+        <div class="container-xl">
+            <div class="text-center">
+                created by
+                <a href="https://github.com/Kukuru5a" target="_blank">Kukuru5a</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

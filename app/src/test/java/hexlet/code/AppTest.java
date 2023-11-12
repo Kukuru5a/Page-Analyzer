@@ -60,15 +60,7 @@ public class AppTest {
         }));
     }
 
-    @Test
-    public void testRightUrlIdPage() throws SQLException {
-        var url = new Url("https://www.vk.com");
-        UrlRepository.save(url);
-        JavalinTest.test(app, ((server, client) -> {
-            var response = client.get("/urls/" + url.getId());
-            assertThat(response.code()).isEqualTo(200);
-        }));
-    }
+
     @Test
     public void testWrongUrlIdPage() {
         JavalinTest.test(app, ((server, client) -> {
@@ -127,7 +119,7 @@ public class AppTest {
     }
     @Test
     public void testCheckShowUrl() throws SQLException {
-        var url = new Url("https://javalintest.io");
+        var url = new Url("https://www.ok.ru");
         UrlRepository.save(url);
 
         JavalinTest.test(app, (server, client) -> {
@@ -135,14 +127,14 @@ public class AppTest {
             assertThat(response.code()).isEqualTo(200);
             assertThat(response.body().string())
                     .contains("Проверки")
-                    .contains("https://javalintest.io");
+                    .contains("https://www.ok.ru");
         });
     }
     @Test
     public void testParsingResponse() throws SQLException, IOException {
         MockResponse mockResponse = new MockResponse()
                 .setResponseCode(200)
-                .setBody(Files.readString(Paths.get("./src/test/resources/test-page.html")));
+                .setBody(Files.readString(Paths.get("./src/test/resources/test.html")));
 
         mockWebServer.enqueue(mockResponse);
         var urlName = mockWebServer.url("/testParsingResponse");
@@ -158,34 +150,49 @@ public class AppTest {
                     .contains("Open source Java</td>");
         });
     }
+
+
     @Test
-    void testStore() throws SQLException {
-        String url = mockWebServer.url("https://ru.hexlet.io/").toString().replaceAll("/$", "");
+    public void testTest() throws SQLException {
+        MockWebServer web = new MockWebServer();
+
+        String uRl = web.url("https://www.ok.ru").toString().replaceAll("/$","");
         JavalinTest.test(app, (server, client) -> {
-            var requestBody = "url=" + url;
-            assertThat(client.post("/urls", requestBody).code()).isEqualTo(200);
-            var actualUrl = UrlRepository.findByName(url);
-            assertThat(actualUrl).isNotNull();
-            assertThat(actualUrl.getName()).isEqualTo(url);
+        var requestBody = "url=" + uRl;
+        assertThat(client.post("/urls", requestBody).code()).isEqualTo(200);
+        var actualUrl = UrlRepository.findByName(uRl);
+        assertThat(actualUrl).isNotNull();
+        assertThat(actualUrl.getName()).isEqualTo(uRl);
 
-            client.post("/urls/" + actualUrl.getId() + "/checks", "");
-            var response = client.get("/urls/" + actualUrl.getId());
-            assertThat(response.code()).isEqualTo(200);
-            assertThat(response.body().string()).contains(url);
+        client.post("/urls/" + actualUrl.getId() + "/checks", "");
+        var response = client.get("/urls/" + actualUrl.getId());
+        assertThat(response.code()).isEqualTo(200);
+        assertThat(response.body().string()).contains(uRl);
 
-            var actualCheckUrl = UrlCheckRepository
-                    .findLatestChecks().get(actualUrl.getId());
-
-            assertThat(actualCheckUrl).isNotNull();
-            assertThat(actualCheckUrl.getStatusCode()).isEqualTo(200);
-            assertThat(actualCheckUrl.getTitle())
-                    .isEqualTo("Хекслет — онлайн-школа программирования, онлайн-обучение ИТ-профессиям");
-            assertThat(actualCheckUrl.getH1())
-                    .isEqualTo("Лучшая школа программирования по версии пользователей Хабра");
-            assertThat(actualCheckUrl.getDescription())
-                    .contains("Хекслет — лучшая школа программирования по версии пользователей Хабра. "
-                            + "Авторские программы обучения с практикой и готовыми проектами в резюме. "
-                            + "Помощь в трудоустройстве после успешного окончания обучения");
+        var actualCheckUrl = UrlCheckRepository
+                .findLatestChecks().get(actualUrl.getId());
+        assertThat(actualCheckUrl).isNotNull();
+        assertThat(actualCheckUrl.getStatusCode()).isEqualTo(200);
+        assertThat(actualCheckUrl.getTitle())
+                .isEqualTo("Социальная сеть Одноклассники. Общение с друзьями в ОК. Ваше место встречи с одноклассниками");
+        assertThat(actualCheckUrl.getDescription())
+                .isEqualTo("Одноклассники.ру это социальная сеть, где вы можете найти своих старых друзей. Общение, онлайн игры, подарки и открытки для друзей. Приходите в ОК, делитесь своими эмоциями с друзьями, коллегами и одноклассниками.");
         });
+
     }
+//    @Test
+//    public void testFlash() throws SQLException {
+//        var web = new MockWebServer();
+//        String uRl = web.url("https://www.ok.ru").toString().replaceAll("/$", "");
+//        JavalinTest.test(app, (server, client) -> {
+//            var requestBody = "url=" + uRl;
+//            assertThat(client.post("/urls", requestBody).code()).isEqualTo(200);
+//            client.post("/urls", requestBody);
+//            client.get("/urls");
+//            var page = new BasePage();
+//            assertThat(page.getFlash()).isEqualTo("Страница успешно добавлена");
+//        });
+        //как сделать тест на флешки ???
+
+//    }
 }

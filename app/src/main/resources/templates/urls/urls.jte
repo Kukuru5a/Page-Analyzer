@@ -1,8 +1,6 @@
-@import hexlet.code.dto.urls.UrlPage
 @import hexlet.code.dto.urls.UrlsPg
 
 @param UrlsPg page
-@param UrlPage urlPage
 @template.layout.page(
 content = @`
     @if(page != null && page.getFlash() != null)
