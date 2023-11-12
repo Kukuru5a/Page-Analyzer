@@ -28,7 +28,7 @@ jobs:
         if: ${{ github.event_name == 'push' }}
         uses: paambaati/codeclimate-action@v5.0.0
         env:
-          CC_TEST_REPORTER_ID: ${{secrets.JP_72_SECRET}}
+          CC_TEST_REPORTER_ID: 348504315987dfdf0db57da1255098f3f25abdca14b9be2076d411bf196e6281
           JACOCO_SOURCE_PATH: ${{github.workspace}}/app/src/main/java
         with:
           coverageCommand: make report
