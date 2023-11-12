@@ -30,6 +30,7 @@ public class AppTest {
         app = App.getApp();
 
     }
+
     @Test
     public void testMainPage() {
         JavalinTest.test(app, (server, client) -> {
@@ -37,6 +38,7 @@ public class AppTest {
             assertThat(response.code()).isEqualTo(200);
         });
     }
+
     @Test
     public void testHomePage() {
         JavalinTest.test(app, ((server, client) -> {
@@ -44,6 +46,7 @@ public class AppTest {
             assertThat(response.code()).isEqualTo(200);
         }));
     }
+
     @Test
     public void testUrlPage() {
         JavalinTest.test(app, (server, client) -> {
@@ -68,6 +71,7 @@ public class AppTest {
             assertThat(response.code()).isEqualTo(404);
         }));
     }
+
     @Test
     public void testAddUrl() {
         JavalinTest.test(app, (server, client) -> {
@@ -82,10 +86,11 @@ public class AppTest {
     public void testNotFoundUrlById() {
         JavalinTest.test(app, (server, client) -> {
             client.delete("/test/delete/777");
-            var response =  client.get("/urls/777");
+            var response = client.get("/urls/777");
             assertThat(response.code()).isEqualTo(404);
         });
     }
+
     @Test
     public void testNotCorrectUrl() {
         JavalinTest.test(app, (server, client) -> {
@@ -108,6 +113,7 @@ public class AppTest {
             assertThat(response.body().string()).contains("Анализатор страниц");
         });
     }
+
     @Test
     public void testNullUrlValidation() throws SQLException {
 
@@ -117,6 +123,7 @@ public class AppTest {
             assertThat(response.body().string()).contains("Анализатор страниц");
         });
     }
+
     @Test
     public void testCheckShowUrl() throws SQLException {
         var url = new Url("https://www.ok.ru");
@@ -130,6 +137,7 @@ public class AppTest {
                     .contains("https://www.ok.ru");
         });
     }
+
     @Test
     public void testParsingResponse() throws SQLException, IOException {
         MockResponse mockResponse = new MockResponse()
@@ -156,27 +164,31 @@ public class AppTest {
     public void testTest() throws SQLException {
         MockWebServer web = new MockWebServer();
 
-        String uRl = web.url("https://www.ok.ru").toString().replaceAll("/$","");
+        String uRl = web.url("https://www.ok.ru").toString().replaceAll("/$", "");
         JavalinTest.test(app, (server, client) -> {
-        var requestBody = "url=" + uRl;
-        assertThat(client.post("/urls", requestBody).code()).isEqualTo(200);
-        var actualUrl = UrlRepository.findByName(uRl);
-        assertThat(actualUrl).isNotNull();
-        assertThat(actualUrl.getName()).isEqualTo(uRl);
+            var requestBody = "url=" + uRl;
+            assertThat(client.post("/urls", requestBody).code()).isEqualTo(200);
+            var actualUrl = UrlRepository.findByName(uRl);
+            assertThat(actualUrl).isNotNull();
+            assertThat(actualUrl.getName()).isEqualTo(uRl);
 
-        client.post("/urls/" + actualUrl.getId() + "/checks", "");
-        var response = client.get("/urls/" + actualUrl.getId());
-        assertThat(response.code()).isEqualTo(200);
-        assertThat(response.body().string()).contains(uRl);
+            client.post("/urls/" + actualUrl.getId() + "/checks", "");
+            var response = client.get("/urls/" + actualUrl.getId());
+            assertThat(response.code()).isEqualTo(200);
+            assertThat(response.body().string()).contains(uRl);
 
-        var actualCheckUrl = UrlCheckRepository
-                .findLatestChecks().get(actualUrl.getId());
-        assertThat(actualCheckUrl).isNotNull();
-        assertThat(actualCheckUrl.getStatusCode()).isEqualTo(200);
-        assertThat(actualCheckUrl.getTitle())
-                .isEqualTo("Социальная сеть Одноклассники. Общение с друзьями в ОК. Ваше место встречи с одноклассниками");
-        assertThat(actualCheckUrl.getDescription())
-                .isEqualTo("Одноклассники.ру это социальная сеть, где вы можете найти своих старых друзей. Общение, онлайн игры, подарки и открытки для друзей. Приходите в ОК, делитесь своими эмоциями с друзьями, коллегами и одноклассниками.");
+            var actualCheckUrl = UrlCheckRepository
+                    .findLatestChecks().get(actualUrl.getId());
+            assertThat(actualCheckUrl).isNotNull();
+            assertThat(actualCheckUrl.getStatusCode()).isEqualTo(200);
+            assertThat(actualCheckUrl.getTitle())
+                    .isEqualTo("Социальная сеть Одноклассники. Общение с друзьями в ОК."
+                            + " Ваше место встречи с одноклассниками");
+            assertThat(actualCheckUrl.getDescription())
+                    .isEqualTo("Одноклассники.ру это социальная сеть,"
+                            + " где вы можете найти своих старых друзей."
+                            + " Общение, онлайн игры, подарки и открытки для друзей."
+                            + " Приходите в ОК, делитесь своими эмоциями с друзьями, коллегами и одноклассниками.");
         });
 
     }
