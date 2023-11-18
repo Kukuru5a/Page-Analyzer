@@ -26,6 +26,9 @@ jacoco {
     applyTo(tasks.run.get())
 
 }
+checkstyle {
+    toolVersion = "10.12.1"
+}
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
@@ -59,8 +62,8 @@ dependencies {
     //jsoup
     implementation ("org.jsoup:jsoup:1.13.1")
 
-
 }
+
 
 tasks.test {
     useJUnitPlatform()
@@ -96,7 +99,7 @@ tasks.test {
 tasks.jacocoTestReport {
     dependsOn(tasks.test) // tests are required to run before generating the report
     reports {
-        xml.required = false
+        xml.required = true
         csv.required = false
         html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
     }
@@ -126,3 +129,86 @@ tasks.register<JacocoReport>("applicationCodeCoverageReport") {
     executionData(tasks.run.get())
     sourceSets(sourceSets.main.get())
 }
+
+//
+//plugins {
+//    id ("application")
+//    id ("checkstyle")
+//    id ("jacoco")
+//    id("io.freefair.lombok") version "8.3"
+//}
+//
+//group = "hexlet.code"
+//version = "1.0-SNAPSHOT"
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//tasks.test {
+//    useJUnitPlatform()
+//    finalizedBy (tasks.jacocoTestReport)
+//}
+//
+//tasks.jacocoTestReport {
+//    dependsOn(tasks.test) // tests are required to run before generating the report
+//    reports {
+//        xml.required = true
+//        csv.required = false
+//        html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
+//    }
+//
+//
+//checkstyle {
+//    toolVersion = "10.12.1"
+//}
+//
+//dependencies {
+//    implementation ("io.javalin:javalin:5.6.2")
+//    implementation ("org.slf4j:slf4j-simple:2.0.5")
+//    implementation ("info.picocli:picocli:4.7.1")
+//    testImplementation ("org.junit.jupiter:junit-jupiter-api:5.9.2")
+//    testRuntimeOnly ("org.junit.jupiter:junit-jupiter-engine:5.9.2")
+//    implementation ("com.h2database:h2:2.1.214")
+//    implementation("com.zaxxer:HikariCP:5.0.1")
+//    //jte
+//    implementation("gg.jte:jte:3.1.4")
+//    //postgresql
+//    implementation("org.postgresql:postgresql:42.1.4")
+//    // jackson & javalin
+//    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
+//    implementation("org.apache.commons:commons-text:1.10.0")
+//    implementation("org.slf4j:slf4j-simple:2.0.9")
+//    implementation("io.javalin:javalin:5.6.2")
+//    implementation("io.javalin:javalin-bundle:5.6.2")
+//    implementation("io.javalin:javalin-rendering:5.6.2")
+//    //tests
+//    testImplementation("org.assertj:assertj-core:3.24.2")
+//    testImplementation(platform("org.junit:junit-bom:5.10.0"))
+//    testImplementation("org.junit.jupiter:junit-jupiter")
+//    testImplementation("junit:junit:4.13.1")
+//    testImplementation("junit:junit:4.13.1")
+//    testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")
+//    //jsoup
+//    implementation ("org.jsoup:jsoup:1.13.1")
+//    //unirest
+//    implementation("com.mashape.unirest:unirest-java:1.3.1")
+//    implementation("com.fasterxml.jackson.core:jackson-databind:2.9.4")
+//    implementation("org.json:json:20201115")
+//    //bootstrap
+//    implementation("org.webjars:bootstrap:$5.2.3")
+//}
+//
+//
+//}
+//
+//application {
+//    mainClass.set("hexlet.code.App")
+//}
+//
+//
+//java {
+//    toolchain {
+//        languageVersion = JavaLanguageVersion.of(20)
+//    }
+//}

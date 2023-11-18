@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c043b75-f245-40dd-91b9-2f4d8c9074f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.jte" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.jte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/page.jte" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/page.jte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/urls/show.jte" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/urls/show.jte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/urls/urls.jte" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/urls/urls.jte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/test2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteshowGenerated$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteshowGenerated.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteshowGenerated.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteurlsGenerated$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteurlsGenerated.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteurlsGenerated.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +39,16 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="app" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="app" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="app" type="f1a62948:ProjectNode" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
+              </path>
             </expand>
             <select />
           </tree_state>
@@ -44,6 +60,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -56,6 +73,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/mockwebserver/4.11.0/aa45049fa91c2bad69b2b4b87967a0143c9dba31/mockwebserver-4.11.0-sources.jar!/okhttp3/mockwebserver/MockWebServer.kt" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zaxxer/HikariCP/5.0.1/9a803965be1f6709795aeaf17d7a71c18791dcda/HikariCP-5.0.1-sources.jar!/com/zaxxer/hikari/HikariConfig.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zaxxer/HikariCP/5.0.1/9a803965be1f6709795aeaf17d7a71c18791dcda/HikariCP-5.0.1-sources.jar!/com/zaxxer/hikari/HikariDataSource.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.zaxxer/HikariCP/5.0.1/9a803965be1f6709795aeaf17d7a71c18791dcda/HikariCP-5.0.1-sources.jar!/com/zaxxer/hikari/pool/HikariPool.java" root0="SKIP_INSPECTION" />
@@ -66,21 +84,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates/urls" />
       <recent name="$PROJECT_DIR$/src/main/resources/templates" />
       <recent name="$PROJECT_DIR$/src/main/resources/Templates" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/main/jte" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -88,23 +107,11 @@
       <command value="gradle run" />
       <command value="gradle installDist" />
       <command value="gradle checkstyleMain" />
+      <command value="gradle checkstyleTest" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.App">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="hexlet.code.App" />
-      <module name="app.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hexlet.code.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.app [jacocoTestReport]">
+    <configuration name="AppTest.testNotCorrectUrl" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -117,7 +124,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;hexlet.code.AppTest&quot;" />
+            <option value="&quot;hexlet.code.AppTest.testNotCorrectUrl&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -128,7 +135,7 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="AppTest.testCheckShowUrl" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AppTest.testNullUrlValidation" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -141,7 +148,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;hexlet.code.AppTest.testCheckShowUrl&quot;" />
+            <option value="&quot;hexlet.code.AppTest.testNullUrlValidation&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -152,7 +159,7 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="AppTest.testParsingResponse" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AppTest.testTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -165,7 +172,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;hexlet.code.AppTest.testParsingResponse&quot;" />
+            <option value="&quot;hexlet.code.AppTest.testTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -176,7 +183,7 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="AppTest.testStore" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="AppTest.testUniqueUrlValidation" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -189,7 +196,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;hexlet.code.AppTest.testStore&quot;" />
+            <option value="&quot;hexlet.code.AppTest.testUniqueUrlValidation&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -198,6 +205,28 @@
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <ForceTestExec>true</ForceTestExec>
+      <method v="2" />
+    </configuration>
+    <configuration name="app [jacocoTestReport]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jacocoTestReport" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
@@ -208,11 +237,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
-        <item itemvalue="Gradle.AppTest.testCheckShowUrl" />
-        <item itemvalue="Gradle.AppTest" />
-        <item itemvalue="Gradle.AppTest.testStore" />
-        <item itemvalue="Gradle.AppTest.testParsingResponse" />
+        <item itemvalue="Gradle.app [jacocoTestReport]" />
+        <item itemvalue="Gradle.AppTest.testNullUrlValidation" />
+        <item itemvalue="Gradle.AppTest.testNotCorrectUrl" />
+        <item itemvalue="Gradle.AppTest.testUniqueUrlValidation" />
+        <item itemvalue="Gradle.AppTest.testTest" />
       </list>
     </recent_temporary>
   </component>
@@ -445,7 +474,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/App.java</url>
-          <line>67</line>
+          <line>66</line>
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -473,6 +502,31 @@
           <line>89</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/dto/BasePage.java</url>
           <line>10</line>
@@ -493,6 +547,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
+          <line>87</line>
+          <properties class="hexlet.code.AppTest" method="testUniqueUrlValidation">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="62" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

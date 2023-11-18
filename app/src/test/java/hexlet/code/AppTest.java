@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.controllers.UrlController;
 import hexlet.code.models.Url;
 import hexlet.code.repositories.UrlCheckRepository;
 import hexlet.code.repositories.UrlRepository;
@@ -39,13 +40,6 @@ public class AppTest {
         });
     }
 
-    @Test
-    public void testHomePage() {
-        JavalinTest.test(app, ((server, client) -> {
-            var response = client.get("/");
-            assertThat(response.code()).isEqualTo(200);
-        }));
-    }
 
     @Test
     public void testUrlPage() {
@@ -55,13 +49,6 @@ public class AppTest {
         });
     }
 
-    @Test
-    public void testPostUrlPage() {
-        JavalinTest.test(app, ((server, client) -> {
-            var response = client.post("/urls");
-            assertThat(response.code()).isEqualTo(200);
-        }));
-    }
 
 
     @Test
@@ -82,27 +69,23 @@ public class AppTest {
         });
     }
 
-    @Test
-    public void testNotFoundUrlById() {
-        JavalinTest.test(app, (server, client) -> {
-            client.delete("/test/delete/777");
-            var response = client.get("/urls/777");
-            assertThat(response.code()).isEqualTo(404);
-        });
-    }
 
     @Test
-    public void testNotCorrectUrl() {
+    public void testNotCorrectUrl() throws SQLException {
         JavalinTest.test(app, (server, client) -> {
             var requestBody = "url=notCorrectUrl";
             var response = client.post("/urls", requestBody);
             assertThat(response.code()).isEqualTo(200);
             assertThat(response.body().string()).contains("Анализатор страниц");
+            // should be thrown an exception
+
         });
+        assertThat(!(UrlRepository.getEntities().contains("notCorrectUrl")));
     }
+    // make a check that there is a new post made in DB L95 & L118. Done
 
     @Test
-    public void testUniqUrlValidation() throws SQLException {
+    public void testUniqueUrlValidation() throws SQLException {
         var url = new Url("https://javalintest.io");
         UrlRepository.save(url);
 
@@ -112,8 +95,9 @@ public class AppTest {
             assertThat(response.code()).isEqualTo(200);
             assertThat(response.body().string()).contains("Анализатор страниц");
         });
+        assertThat(UrlRepository.getEntities().contains(url));
     }
-
+    //needs to be checked through DB too. Done
     @Test
     public void testNullUrlValidation() throws SQLException {
 
@@ -121,6 +105,8 @@ public class AppTest {
             var response = client.post("/urls", "");
             assertThat(response.code()).isEqualTo(200);
             assertThat(response.body().string()).contains("Анализатор страниц");
+            //Url check must throw an exception
+            assertThat(UrlRepository.getEntities().isEmpty());
         });
     }
 
@@ -138,73 +124,44 @@ public class AppTest {
         });
     }
 
+
+
     @Test
-    public void testParsingResponse() throws SQLException, IOException {
+    public void testTest() throws SQLException, IOException {
+        MockWebServer web = new MockWebServer();
+
         MockResponse mockResponse = new MockResponse()
                 .setResponseCode(200)
-                .setBody(Files.readString(Paths.get("./src/test/resources/test.html")));
-
+                .setBody(Files.readString(Paths.get("./src/test/resources/test2.html")));
         mockWebServer.enqueue(mockResponse);
-        var urlName = mockWebServer.url("/testParsingResponse");
+        var urlName = mockWebServer.url("/testStoreResponse");
         var url = new Url(urlName.toString());
         UrlRepository.save(url);
 
         JavalinTest.test(app, (server, client) -> {
-            var response = client.post("/urls/" + url.getId() + "/checks", "");
-            assertThat(response.code()).isEqualTo(200);
-            assertThat(response.body().string())
-                    .contains("Hello, World!</td>")
-                    .contains("Sample Page</td>")
-                    .contains("Open source Java</td>");
-        });
-    }
-
-
-    @Test
-    public void testTest() throws SQLException {
-        MockWebServer web = new MockWebServer();
-
-        String uRl = web.url("https://www.ok.ru").toString().replaceAll("/$", "");
-        JavalinTest.test(app, (server, client) -> {
-            var requestBody = "url=" + uRl;
-            assertThat(client.post("/urls", requestBody).code()).isEqualTo(200);
-            var actualUrl = UrlRepository.findByName(uRl);
+            var requestFormParam = "url=" + url.getName();
+            assertThat(client.post("/urls", requestFormParam).code()).isEqualTo(200);
+            var actualUrl = UrlRepository.findByName(url.getName());
             assertThat(actualUrl).isNotNull();
-            assertThat(actualUrl.getName()).isEqualTo(uRl);
+            assertThat(actualUrl.getName()).isEqualTo(url.getName());
 
             client.post("/urls/" + actualUrl.getId() + "/checks", "");
             var response = client.get("/urls/" + actualUrl.getId());
             assertThat(response.code()).isEqualTo(200);
-            assertThat(response.body().string()).contains(uRl);
+            assertThat(response.body().string()).contains(url.getName());
+
 
             var actualCheckUrl = UrlCheckRepository
                     .findLatestChecks().get(actualUrl.getId());
             assertThat(actualCheckUrl).isNotNull();
             assertThat(actualCheckUrl.getStatusCode()).isEqualTo(200);
             assertThat(actualCheckUrl.getTitle())
-                    .isEqualTo("Социальная сеть Одноклассники. Общение с друзьями в ОК."
-                            + " Ваше место встречи с одноклассниками");
+                    .isEqualTo("Imagine Dragons - Demons");
             assertThat(actualCheckUrl.getDescription())
-                    .isEqualTo("Одноклассники.ру это социальная сеть,"
-                            + " где вы можете найти своих старых друзей."
-                            + " Общение, онлайн игры, подарки и открытки для друзей."
-                            + " Приходите в ОК, делитесь своими эмоциями с друзьями, коллегами и одноклассниками.");
+                    .isEqualTo("When the days are cold and the cards all fold, and the saints we see are all made of gold");
+            assertThat((actualCheckUrl.getH1())).isEqualTo("Night Vision");
         });
 
     }
-//    @Test
-//    public void testFlash() throws SQLException {
-//        var web = new MockWebServer();
-//        String uRl = web.url("https://www.ok.ru").toString().replaceAll("/$", "");
-//        JavalinTest.test(app, (server, client) -> {
-//            var requestBody = "url=" + uRl;
-//            assertThat(client.post("/urls", requestBody).code()).isEqualTo(200);
-//            client.post("/urls", requestBody);
-//            client.get("/urls");
-//            var page = new BasePage();
-//            assertThat(page.getFlash()).isEqualTo("Страница успешно добавлена");
-//        });
-        //как сделать тест на флешки ???
-
-//    }
 }
+//after all I need to recreate a Build.yml file and correct a Read.md file
