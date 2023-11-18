@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.controllers.UrlController;
 import hexlet.code.models.Url;
 import hexlet.code.repositories.UrlCheckRepository;
 import hexlet.code.repositories.UrlRepository;
@@ -158,7 +157,8 @@ public class AppTest {
             assertThat(actualCheckUrl.getTitle())
                     .isEqualTo("Imagine Dragons - Demons");
             assertThat(actualCheckUrl.getDescription())
-                    .isEqualTo("When the days are cold and the cards all fold, and the saints we see are all made of gold");
+                    .isEqualTo("When the days are cold and the cards all fold," +
+                            " and the saints we see are all made of gold");
             assertThat((actualCheckUrl.getH1())).isEqualTo("Night Vision");
         });
 

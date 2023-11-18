@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c043b75-f245-40dd-91b9-2f4d8c9074f7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/test2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteshowGenerated$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteshowGenerated.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteshowGenerated.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteurlsGenerated$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteurlsGenerated.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/urls/JteurlsGenerated.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,6 +100,7 @@
       <command value="gradle installDist" />
       <command value="gradle checkstyleMain" />
       <command value="gradle checkstyleTest" />
+      <command value="gradle jacocoTestReport" />
     </option>
   </component>
   <component name="RunManager" selected="Gradle.app [jacocoTestReport]">
@@ -504,27 +497,27 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
-          <line>88</line>
+          <line>87</line>
           <option name="timeStamp" value="63" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
-          <line>89</line>
+          <line>88</line>
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
-          <line>91</line>
+          <line>90</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
-          <line>92</line>
+          <line>91</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
-          <line>93</line>
+          <line>92</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-field">
@@ -550,7 +543,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/hexlet/code/AppTest.java</url>
-          <line>87</line>
+          <line>86</line>
           <properties class="hexlet.code.AppTest" method="testUniqueUrlValidation">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
