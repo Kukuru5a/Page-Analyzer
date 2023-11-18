@@ -38,7 +38,7 @@ public class App {
 //        System.setProperty("h2.traceLevel", "TRACE_LEVEL_SYSTEM_OUT=4");
 //  configuring jdbc with local DB
         var hikariConfig = new HikariConfig();
-        hikariConfig.setJdbcUrl("jdbc:h2:mem:project;DB_CLOSE_DELAY=-1;");
+        hikariConfig.setJdbcUrl(getDataBaseUrl());
 
         var dataSource = new HikariDataSource(hikariConfig);
         var sql = getResourceFileAsString("schema.sql");
@@ -84,5 +84,8 @@ public class App {
         } else {
             throw new RuntimeException("resource not found");
         }
+    }
+    public static String getDataBaseUrl() {
+        return System.getenv().getOrDefault("JDBC_DATABASE_URL", "jdbc:h2:mem:project");
     }
 }

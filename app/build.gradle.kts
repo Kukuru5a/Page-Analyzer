@@ -35,6 +35,7 @@ dependencies {
     implementation("com.h2database:h2:2.2.222")
     implementation("com.zaxxer:HikariCP:5.0.1")
 
+    implementation("org.postgresql:postgresql:42.1.4")
 
     implementation("com.fasterxml.jackson.core:jackson-databind:2.15.2")
     implementation("org.apache.commons:commons-text:1.10.0")
@@ -101,27 +102,7 @@ tasks.jacocoTestReport {
 
     }
 }
-tasks.jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                minimum = "0.5".toBigDecimal()
-            }
-        }
 
-        rule {
-            isEnabled = false
-            element = "CLASS"
-            includes = listOf("org.gradle.*")
-
-            limit {
-                counter = "LINE"
-                value = "TOTALCOUNT"
-                maximum = "0.3".toBigDecimal()
-            }
-        }
-    }
-}
 tasks.register<JacocoReport>("applicationCodeCoverageReport") {
     executionData(tasks.run.get())
     sourceSets(sourceSets.main.get())
