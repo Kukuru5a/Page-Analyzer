@@ -8,5 +8,4 @@
 
 
 ### Hexlet deployed App
-[(link[https://dashboard.render.com/web/srv-ckpqva81hnes73eh5v0g/deploys/dep-ckpshog1hnes73eucl7g])
-](https://dashboard.render.com/web/srv-ckpqva81hnes73eh5v0g/deploys/dep-ckr60uprfc9c73cnk1ag)https://dashboard.render.com/web/srv-ckpqva81hnes73eh5v0g/deploys/dep-ckr60uprfc9c73cnk1ag
+[Deployed App]([https://dashboard.render.com/web/srv-ckpqva81hnes73eh5v0g/deploys/dep-ckpshog1hnes73eucl7g](https://roman-web-service-1.onrender.com))
