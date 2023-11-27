@@ -11,6 +11,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import okhttp3.mockwebserver.MockWebServer;
+
+
 import io.javalin.Javalin;
 import io.javalin.testtools.JavalinTest;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -159,6 +163,25 @@ public final class AppTest {
             assertThat((actualCheckUrl.getH1())).isEqualTo("Night Vision");
         });
 
+    }
+    @Test
+    public void testMakeCheck() throws SQLException, IOException {
+        String page = Files.readString(Paths.get("./src/test/resources/test.html"));
+        MockResponse mockResponse = new MockResponse().setResponseCode(200).setBody(page);
+        mockWebServer.enqueue(mockResponse);
+        String urlString = mockWebServer.url("/").toString();
+        Url testUrl = new Url(urlString, new Timestamp(System.currentTimeMillis()));
+        UrlRepository.save(testUrl);
+        JavalinTest.test(app, (server, client) -> {
+            var response = client.post("/urls/" + testUrl.getId() + "/checks");
+            assertThat(response.code()).isEqualTo(200);
+            var lastCheck = testUrl.getLastCheck();
+            assertThat(lastCheck).isNotNull();
+            assertThat(lastCheck.getStatusCode()).isEqualTo(200);
+            assertThat(lastCheck.getTitle()).isEqualTo("Sample title");
+            assertThat(lastCheck.getH1()).isEqualTo("Sample header");
+            assertThat(lastCheck.getDescription()).contains("Sample description");
+        });
     }
 }
 //after all I need to recreate a Build.yml file and correct a Read.md file
