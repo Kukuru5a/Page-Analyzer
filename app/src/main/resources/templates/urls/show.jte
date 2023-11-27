@@ -4,8 +4,8 @@
 <title>URL</title>
 
 @template.layout.page(
-    page = page,
-    content = @`
+page = page,
+content = @`
 <%--    @if(page != null && page.getFlash() != null)--%>
 <%--        <div class="alert alert-${page.getFlashType()}" role="alert">--%>
 <%--            ${page.getFlash()}--%>
@@ -36,31 +36,31 @@
             <button type="submit" class="btn btn-primary">Запустить проверку</button>
         </form>
         <table>
-        <thead>
-        <tr>
-            <th class="col-1">ID</th>
-            <th class="col-1">Код ответа</th>
-            <th>title</th>
-            <th>h1</th>
-            <th>description</th>
-            <th class="col-2">Дата проверки</th>
-        </tr>
-        </thead>
-        <tbody>
-        @for(var url : page.getCheck())
+            <thead>
             <tr>
-                <td>${url.getId()}</td>
-                <td>${url.getStatusCode()}</td>
-                <td>${url.getTitle()}</td>
-                <td>${url.getH1()}</td>
-                <td>${url.getDescription()}</td>
-                <td>${url.getCreatedAt().toString()}</td>
+                <th class="col-1">ID</th>
+                <th class="col-1">Код ответа</th>
+                <th>title</th>
+                <th>h1</th>
+                <th>description</th>
+                <th class="col-2">Дата проверки</th>
             </tr>
-        @endfor
-        </tbody>
+            </thead>
+            <tbody>
+            @for(var url : page.getCheck())
+                <tr>
+                    <td>${url.getId()}</td>
+                    <td>${url.getStatusCode()}</td>
+                    <td>${url.getTitle()}</td>
+                    <td>${url.getH1()}</td>
+                    <td>${url.getDescription()}</td>
+                    <td>${url.getCreatedAt().toString()}</td>
+                </tr>
+            @endfor
+            </tbody>
         </table>
     </div>
 `
-    )
+)
 прописать логику getCheck() внутри класса UrlPage
 если не получится, уточнить о необходимости реализации темплейтинга

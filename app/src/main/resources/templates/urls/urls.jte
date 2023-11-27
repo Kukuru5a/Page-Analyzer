@@ -1,17 +1,11 @@
 @import hexlet.code.dto.urls.UrlsPg
-
 @param UrlsPg page
-@template.layout.page(
-content = @`
-    @if(page != null && page.getFlash() != null)
-        <div class="alert alert-${page.getFlashType()}" role="alert">
-            ${page.getFlash()}
-        </div>
-    @endif
 
+@template.layout.page(
+page = page,
+content = @`
     <div class="container-lg mt-5">
         <h1>Сайты</h1>
-
         <table class="table table-bordered table-hover mt-3">
             <thead>
             <tr>
@@ -21,17 +15,32 @@ content = @`
                 <th class="col-1">Код ответа</th>
             </tr>
             </thead>
-            @for(var url : page.getUrlList())
-            <tbody>
-            <tr>
-                <td>${url.getId()}</td>
-                <td><a href="urls/${url.getId()}">${url.getName()}</a></td>
-                <td>${page.getCheckMap().isEmpty() || page.getCheckMap().get(url.getId()) == null ? "" : String.valueOf(page.getCheckMap().get(url.getId()).getCreatedAt())}</td>
-                <td>${page.getCheckMap().isEmpty() || page.getCheckMap().get(url.getId()) == null ? "" : String.valueOf(page.getCheckMap().get(url.getId()).getStatusCode())}</td>
-            </tr>
-            </tbody>
-            @endfor
+            @if(!page.getUrlList().isEmpty())
+                <tbody>
+                @for(var url : page.getUrlList())
+                    <tr>
+                        <td>
+                            ${url.getId()}
+                        </td>
+                        <td>
+                            <a href="urls/${url.getId()}">${url.getName()}</a>
+                        </td>
+                        <td>
+                            @if(url.getLastCheck() != null)
+                                ${String.valueOf(url.getLastCheck().getCreatedAt())}
+                            @endif
+                        </td>
+                        <td>
+                            @if(url.getLastCheck() != null)
+                                ${url.getLastCheck().getStatusCode()}
+                            @endif
+                        </td>
+                    </tr>
+                @endfor
+                </tbody>
+            @endif
         </table>
     </div>
+
 `
 )

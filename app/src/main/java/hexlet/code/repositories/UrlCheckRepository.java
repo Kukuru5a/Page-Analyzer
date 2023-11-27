@@ -13,16 +13,10 @@ import java.util.HashMap;
 
 public class UrlCheckRepository extends BaseRepository {
     public static void save(UrlCheck urlCheck) throws SQLException {
-        String sql = "INSERT INTO url_checks("
-                + "status_code,"
-                + " title,"
-                + " h1,"
-                + " description,"
-                + " url_id,"
-                + " created_at)"
-                + " VALUES (?,?,?,?,?,?)";
-        var conn = dataSource.getConnection();
-        try (var preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        var sql = "INSERT INTO url_checks (status_code, title, h1, description, url_id, created_at)"
+                + "VALUES (?, ?, ?, ?, ?, ?)";
+        try (var conn = dataSource.getConnection();
+             var preparedStatement = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setInt(1, urlCheck.getStatusCode());
             preparedStatement.setString(2, urlCheck.getTitle());
             preparedStatement.setString(3, urlCheck.getH1());
@@ -30,12 +24,11 @@ public class UrlCheckRepository extends BaseRepository {
             preparedStatement.setLong(5, urlCheck.getUrlId());
             preparedStatement.setTimestamp(6, new Timestamp(System.currentTimeMillis()));
             preparedStatement.executeUpdate();
-
             var generatedKeys = preparedStatement.getGeneratedKeys();
             if (generatedKeys.next()) {
-                urlCheck.setId(1L);
+                urlCheck.setId(generatedKeys.getLong(1));
             } else {
-                throw new SQLException("DB have not returned an id after saving an entity");
+                throw new SQLException("Database didn't return id after saving urlCheck");
             }
         }
     }

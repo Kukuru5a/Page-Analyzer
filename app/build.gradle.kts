@@ -33,6 +33,7 @@ dependencies {
     implementation("io.javalin:javalin-bundle:5.6.2")
     implementation("io.javalin:javalin-rendering:5.6.2")
     implementation("org.projectlombok:lombok:1.18.30")
+    implementation("com.mashape.unirest:unirest-java:1.3.1")
     compileOnly ("org.projectlombok:lombok:1.18.30")
     annotationProcessor ("org.projectlombok:lombok:1.18.30")
     testImplementation("com.squareup.okhttp3:mockwebserver:4.11.0")

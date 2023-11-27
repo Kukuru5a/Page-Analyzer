@@ -59,11 +59,11 @@ public class App {
         });
 
         //GET
-        app.get("/", RootController::page);
-        app.get("/urls", UrlController::urlList);
+        app.get(NamedRoutes.homePagePath(), RootController::page);
+        app.get(NamedRoutes.sitesPath(), UrlController::urlList);
         app.get(NamedRoutes.sitePagePath("{id}"), UrlController::showUrl);
         //POST
-        app.post("/urls", UrlController::addUrl);
+        app.post(NamedRoutes.sitesPath(), UrlController::addUrl);
         app.post("/urls/{id}/checks", UrlController::checks);
         JavalinJte.init(createTemplateEngine());
         return app;
