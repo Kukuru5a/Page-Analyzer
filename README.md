@@ -8,4 +8,4 @@
 
 
 ### Hexlet deployed App
-[Deployed App]([https://dashboard.render.com/web/srv-ckpqva81hnes73eh5v0g/deploys/dep-ckpshog1hnes73eucl7g](https://roman-web-service-1.onrender.com))
+[Deployed App](https://roman-web-service-1.onrender.com)
