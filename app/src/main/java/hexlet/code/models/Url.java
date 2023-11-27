@@ -12,7 +12,7 @@ import java.util.Optional;
 @Getter
 @Setter
 @ToString
-public class Url {
+public final class Url {
 
     private Long id;
     @ToString.Include

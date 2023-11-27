@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class MainPage {
+public final class MainPage {
     private Boolean visited;
     private String currentUser;
 

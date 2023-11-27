@@ -15,7 +15,7 @@ import io.javalin.Javalin;
 import io.javalin.testtools.JavalinTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AppTest {
+public final class AppTest {
     Javalin app;
     private MockWebServer mockWebServer;
 
