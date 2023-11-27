@@ -132,6 +132,4 @@ public class UrlController {
             return new UrlCheck(urlStatusCode, urlTitle, urlH1Value, urlDescription, url.getId());
         }
     }
-
-
 }
