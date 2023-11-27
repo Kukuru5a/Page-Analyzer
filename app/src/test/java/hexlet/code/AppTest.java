@@ -3,7 +3,6 @@ package hexlet.code;
 import hexlet.code.models.Url;
 import hexlet.code.repositories.UrlCheckRepository;
 import hexlet.code.repositories.UrlRepository;
-import io.javalin.http.Context;
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,11 +14,9 @@ import java.sql.SQLException;
 import io.javalin.Javalin;
 import io.javalin.testtools.JavalinTest;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
 
 public class AppTest {
     Javalin app;
-    private final Context ctx = mock(Context.class);
     private MockWebServer mockWebServer;
 
 
