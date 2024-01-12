@@ -9,3 +9,16 @@
 
 ### Hexlet deployed App
 [Deployed App](https://roman-web-service-1.onrender.com)
+
+
+### Description
+
+This application makes SEO checks. through which users will be able to make a check of url (statu, description, etc.)
+
+### Tutorial
+
+`git clone <name of repo>` to clone it to local machine.
+
+To start it up use command: 
+
+`make start`

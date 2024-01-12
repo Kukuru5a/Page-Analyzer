@@ -34,7 +34,7 @@ public final class JtepageGenerated {
 		if (page != null && page.getFlash() != null) {
 			jteOutput.writeContent("\n        <div class=\"rounded-0 m-0 alert alert-dismissible fade show alert-");
 			jteOutput.setContext("div", "class");
-			jteOutput.writeUserContent(page.getFlashType());
+			jteOutput.writeUserContent(page.getColor());
 			jteOutput.setContext("div", null);
 			jteOutput.writeContent("\" role=\"alert\">\n            <p class=\"m-0\">");
 			jteOutput.setContext("p", null);

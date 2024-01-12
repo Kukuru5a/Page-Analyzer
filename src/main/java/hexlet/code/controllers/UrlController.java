@@ -137,7 +137,7 @@ public class UrlController {
     public static UrlCheck getLastCheck() {
         Optional<UrlCheck> checks;
         try {
-            checks = UrlCheckRepository.find(UrlCheckRepository.getId());
+            checks = UrlCheckRepository.find(Url.getId());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

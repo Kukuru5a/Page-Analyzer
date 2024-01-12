@@ -12,11 +12,6 @@ import java.util.Optional;
 import java.util.HashMap;
 
 public class UrlCheckRepository extends BaseRepository {
-    protected static long id;
-
-    public static long getId() {
-        return id;
-    }
 
     public static void save(UrlCheck urlCheck) throws SQLException {
         var sql = "INSERT INTO url_checks (status_code, title, h1, description, url_id, created_at)"
@@ -39,7 +34,7 @@ public class UrlCheckRepository extends BaseRepository {
         }
     }
 
-    public static Optional<UrlCheck> find(Long id) throws SQLException {
+    public static <id> Optional<UrlCheck> find(long id) throws SQLException {
         var sql = "SELECT * FROM url_checks WHERE url_id = ?";
 
         try (var conn = dataSource.getConnection();

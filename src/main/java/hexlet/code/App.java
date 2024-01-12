@@ -4,7 +4,6 @@ package hexlet.code;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import hexlet.code.controllers.RootController;
-import hexlet.code.controllers.UrlChecksController;
 import hexlet.code.controllers.UrlController;
 import hexlet.code.repositories.BaseRepository;
 import hexlet.code.routes.NamedRoutes;
@@ -15,7 +14,9 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import static hexlet.code.AppUtils.*;
+import static hexlet.code.AppUtils.getDataBaseUrl;
+import static hexlet.code.AppUtils.createTemplateEngine;
+import static hexlet.code.AppUtils.getResourceFileAsString;
 
 
 @Slf4j
