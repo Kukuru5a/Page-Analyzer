@@ -34,3 +34,4 @@ public final class UrlCheck {
         return this.createdAt.toInstant();
     }
 }
+
