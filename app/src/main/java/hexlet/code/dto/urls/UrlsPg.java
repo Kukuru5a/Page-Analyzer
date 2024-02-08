@@ -15,10 +15,4 @@ import java.util.Map;
 @ToString
 public class UrlsPg extends BasePage {
     Map<Url, UrlCheck> checkMap;
-
-    //    public static UrlCheck urlWithLastCheck = UrlChecksController.getLastCheck();
-
-//    public static UrlCheck getUrlWithLastCheck() {
-//        return urlWithLastCheck;
-//    }
 }

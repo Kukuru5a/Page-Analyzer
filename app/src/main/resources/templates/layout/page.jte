@@ -48,7 +48,7 @@
     <div class="container-xl">
         <div class="text-center">
             created by
-            <a href="https://github.com/Kukuru5a" target="_blank">Roman Zagorulya</a>
+            <a href="https://github.com/DaniilDeFacto" target="_blank">Daniil Martynov</a>
         </div>
     </div>
 </footer>
