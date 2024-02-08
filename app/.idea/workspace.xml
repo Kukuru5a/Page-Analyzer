@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a56805a3-d122-4c1f-ae24-fd2259cb6515" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/.jteroot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_01_2024__10_09__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2023,_00_13_[Changes]/shelved.patch" beforeDir="false" />
@@ -12,6 +13,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_28_11_2023__00_13__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated.class" beforeDir="false" afterPath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated.java" beforeDir="false" afterPath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/layout/JtepageGenerated.class" beforeDir="false" afterPath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/layout/JtepageGenerated.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/layout/JtepageGenerated.java" beforeDir="false" afterPath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/layout/JtepageGenerated.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/dto/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/dto/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/dto/urls/UrlsPg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/dto/urls/UrlsPg.java" afterDir="false" />
