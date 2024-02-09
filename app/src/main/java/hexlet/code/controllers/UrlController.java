@@ -51,7 +51,7 @@ public class UrlController {
             ctx.sessionAttribute("flash", "Некорректный URL");
             ctx.sessionAttribute("color", "danger");
             ctx.redirect(NamedRoutes.mainPath());
-            e.printStackTrace();
+            return;
         }
         if (inputUrl != null) {
             String protocol = inputUrl.getProtocol();

@@ -16,15 +16,13 @@
       <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated.class" beforeDir="false" afterPath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated.java" beforeDir="false" afterPath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/JteindexGenerated.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/layout/JtepageGenerated.class" beforeDir="false" afterPath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/layout/JtepageGenerated.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/layout/JtepageGenerated.java" beforeDir="false" afterPath="$PROJECT_DIR$/jte-classes/gg/jte/generated/ondemand/layout/JtepageGenerated.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/controllers/RootController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/controllers/RootController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/dto/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/dto/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/dto/urls/UrlsPg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/dto/urls/UrlsPg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/repositories/UrlCheckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/repositories/UrlCheckRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hexlet/code/repositories/UrlRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hexlet/code/repositories/UrlRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.jte" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.jte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/page.jte" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/page.jte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/test2.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,11 +141,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
           <line>49</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
@@ -155,11 +148,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
           <line>50</line>
           <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
@@ -173,63 +161,103 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
-          <line>55</line>
-          <option name="timeStamp" value="15" />
+          <line>53</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
           <line>56</line>
-          <option name="timeStamp" value="16" />
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
           <line>57</line>
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
           <line>58</line>
-          <option name="timeStamp" value="18" />
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
           <line>59</line>
-          <option name="timeStamp" value="19" />
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
           <line>60</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="21" />
+          <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
           <line>63</line>
-          <option name="timeStamp" value="22" />
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
           <line>64</line>
-          <option name="timeStamp" value="23" />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
           <line>65</line>
-          <option name="timeStamp" value="24" />
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
           <line>66</line>
-          <option name="timeStamp" value="25" />
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="26" />
+          <line>68</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/UrlController.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/RootController.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hexlet/code/controllers/RootController.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

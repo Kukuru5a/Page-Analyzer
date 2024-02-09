@@ -1,9 +1,10 @@
 package gg.jte.generated.ondemand;
+import hexlet.code.AppUtils;
 import hexlet.code.routes.NamedRoutes;
 import hexlet.code.dto.BasePage;
 public final class JteindexGenerated {
 	public static final String JTE_NAME = "index.jte";
-	public static final int[] JTE_LINE_INFO = {0,0,1,2,2,2,4,4,7,7,14,14,14,14,14,14,14,14,33,33,33};
+	public static final int[] JTE_LINE_INFO = {0,0,1,2,3,3,3,5,5,8,8,15,15,15,15,15,15,15,15,34,34,34};
 	public static void render(gg.jte.html.HtmlTemplateOutput jteOutput, gg.jte.html.HtmlInterceptor jteHtmlInterceptor, BasePage page) {
 		jteOutput.writeContent("\n");
 		gg.jte.generated.ondemand.layout.JtepageGenerated.render(jteOutput, jteHtmlInterceptor, new gg.jte.html.HtmlContent() {

@@ -1,3 +1,4 @@
+@import hexlet.code.AppUtils
 @import hexlet.code.routes.NamedRoutes
 @import hexlet.code.dto.BasePage
 @param BasePage page
