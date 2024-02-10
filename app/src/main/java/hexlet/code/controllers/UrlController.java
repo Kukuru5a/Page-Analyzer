@@ -53,23 +53,21 @@ public class UrlController {
             ctx.redirect(NamedRoutes.mainPath());
             return;
         }
-        if (inputUrl != null) {
-            String protocol = inputUrl.getProtocol();
-            String authority = inputUrl.getAuthority();
-            var name = String.format("%s://%s", protocol, authority);
-            var url = new Url(name);
-            var uniqueness = UrlRepository.getUrls().stream()
-                    .noneMatch(entity -> entity.getName().equals(name));
-            if (uniqueness) {
-                UrlRepository.save(url);
-                ctx.sessionAttribute("flash", "Страница успешно добавлена");
-                ctx.sessionAttribute("color", "success");
-                ctx.redirect(NamedRoutes.urlsPath());
-            } else {
-                ctx.sessionAttribute("flash", "Страница уже существует");
-                ctx.sessionAttribute("color", "info");
-                ctx.redirect(NamedRoutes.urlsPath());
-            }
+        String protocol = inputUrl.getProtocol();
+        String authority = inputUrl.getAuthority();
+        var name = String.format("%s://%s", protocol, authority);
+        var url = new Url(name);
+        var uniqueness = UrlRepository.getUrls().stream()
+                .noneMatch(entity -> entity.getName().equals(name));
+        if (uniqueness) {
+            UrlRepository.save(url);
+            ctx.sessionAttribute("flash", "Страница успешно добавлена");
+            ctx.sessionAttribute("color", "success");
+            ctx.redirect(NamedRoutes.urlsPath());
+        } else {
+            ctx.sessionAttribute("flash", "Страница уже существует");
+            ctx.sessionAttribute("color", "info");
+            ctx.redirect(NamedRoutes.urlsPath());
         }
     }
 }
